@@ -34,6 +34,7 @@ base_path = './final_model'
 os.system(f'git clone https://code.openxlab.org.cn/sms123/onlyzero_ass.git {base_path}')
 os.system(f'cd {base_path} && git lfs pull')
 
+
 logger = logging.get_logger(__name__)
 
 
@@ -278,15 +279,6 @@ def main():
                 message_placeholder.markdown(cur_response + '▌')
             message_placeholder.markdown(cur_response)
         # Add robot response to chat history
-        st.session_state.messages.append({
-            'role': 'robot',
-            'content': cur_response,  # pylint: disable=undefined-loop-variable
-        })
-        torch.cuda.empty_cache()
-
-
-if __name__ == '__main__':
-    main()  # Add robot response to chat history
         st.session_state.messages.append({
             'role': 'robot',
             'content': cur_response,  # pylint: disable=undefined-loop-variable
